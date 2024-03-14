@@ -1,16 +1,19 @@
 import React from 'react'
 import { View, StyleSheet  } from 'react-native'
 
-import Aleatorio from './components/Aleatorio'
-{/*import MinMax from './components/MinMax'
+{/*import Aleatorio from './components/Aleatorio'
+import MinMax from './components/MinMax'
 import CompPadro, { Comp1, Comp2 } from './components/Multi'
 import Primeiro from'./components/Primeiro'}*/}
+import Titulo from './components/Titulo'
 
 
 export default () => (
     <View style={style.App}>
-        <Aleatorio min={10} max={60}/>
-        {/*<MinMax min="3" max="20"/>
+        <Titulo principal="Cadastro principal"
+            secundario="Tela de cadastro do produto"/>
+        {/*<Aleatorio min={10} max={60}/>
+        <MinMax min="3" max="20"/>
         <CompPadro></CompPadro>
         <Primeiro></Primeiro>
         <Comp1></Comp1> */}

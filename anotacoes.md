@@ -1,5 +1,7 @@
 # React native
 
+## Criando e iniciando o projeto
+
 * Para criar o projeto executar `npx react-native init [nomeDoProjeto]`
 * Já dentro da pasta criada, para rodar o projeto, execute `npx react-native run-android`
 * Crie uma pasta src que é onde deixaremos o App.js e os componentes
@@ -70,3 +72,41 @@ const props = {min: 1, max: 60}
 
 const { min, max } = props
 ```
+
+* Essas pros que usamos são somente leitura, então sempre que precisarmos de modificar alguma coisa dentro do componente, usamos outra coisa. Não é bom alterar direamente nas propriedades, melhor criar outra variável e usá-la
+* Como congelar um objeto para ele não ser alterado
+```javascript
+let props = Object.freeze({min: 1, max: 60})
+
+// tentando alterar e não vai dar certo
+props.min += 1000
+
+```
+
+### React Fragment
+* Não é possível retonar múltiplos elementos a apartir de um elemento. Então se quisermos que isso aconteça. temos que envolver esses elementos pelo que o react native chama de fragment
+```javascript
+import React from "react";
+import {Text } from "react-native"
+import Estilo from "./estilo";
+
+export default props => {
+
+    return(
+        <React.Fragment>
+            <Text style={Estilo.fontG}>{props.principal}</Text>
+            <Text>{props.secundario}</Text>
+        </React.Fragment>     
+    )
+}
+
+// deixar dessa outra forma mais simplificada também significa que está envolvido com fragment
+    return(
+        <>
+            <Text style={Estilo.fontG}>{props.principal}</Text>
+            <Text>{props.secundario}</Text>
+        </>     
+    )
+```
+
+### Usando um botão
